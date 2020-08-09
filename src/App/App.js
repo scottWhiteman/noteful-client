@@ -48,6 +48,12 @@ class App extends Component {
         });
     };
 
+    handleAddNote = newNote => {
+        this.setState({
+            notes: [...this.state.notes, newNote]
+        })
+    }
+
     renderNavRoutes() {
         return (
             <>
