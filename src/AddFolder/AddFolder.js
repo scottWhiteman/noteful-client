@@ -1,6 +1,7 @@
 import React from 'react';
 import ApiContext from '../ApiContext';
 import config from '../config';
+import './AddFolder.css';
 
 export default class AddFolder extends React.Component {
   static defaultProps = {
@@ -54,12 +55,16 @@ export default class AddFolder extends React.Component {
   render() {
     console.log(this.context);
     return (
-      <form className="add-folder" onSubmit={e => this.handleSubmit(e)}>
-        <label htmlFor="name">Folder Name</label>
-        <input type="text" name="name" id="name"/>
-        <button type="submit">Submit Folder</button>
-        <button type="button" onClick={e => this.handleCancel(e)}>Cancel</button>
-      </form>
+      <div className="folder-form">
+        <form className="newFolder" onSubmit={e => this.handleSubmit(e)}>
+          <label htmlFor="name">Folder Name</label>
+          <input type="text" name="name" id="name"/>
+          <div className="button-set">
+            <button type="submit">Submit Folder</button>
+            <button type="button" onClick={e => this.handleCancel(e)}>Cancel</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

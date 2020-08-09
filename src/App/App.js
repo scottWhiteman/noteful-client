@@ -9,6 +9,7 @@ import AddFolder from '../AddFolder/AddFolder';
 import AddNote from '../AddNote/AddNote';
 import ApiContext from '../ApiContext';
 import config from '../config';
+import PropTypes from 'prop-types';
 import './App.css';
 
 class App extends Component {
@@ -113,6 +114,19 @@ class App extends Component {
             </ApiContext.Provider>
         );
     }
+}
+
+App.proptypes = {
+    folders: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string
+    })),
+    notes: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string,
+        folderId: PropTypes.string.isRequired,
+        content: PropTypes.string
+    }))
 }
 
 export default App;
